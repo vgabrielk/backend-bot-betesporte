@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../database/database');
 
-const JWT_SECRET = 'kasdjkl8a7s8d798972hjahjkskhdjajsd'; // Substitua por uma chave secreta mais segura
+const JWT_SECRET = process.env.JWT_SECRET; 
 
 const generateToken = (user) => {
   return jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: '1h' });

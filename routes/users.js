@@ -9,8 +9,8 @@ router.post('/register', [
   check('password').isLength({ min: 6 }).withMessage('A senha deve ter pelo menos 6 caracteres')
 ], authController.register);
 
-router.post('/login', authController.login);
 
-router.get('/users', authController.getUsers);
+router.get('/', authController.getUsers);
+router.post('/login', authController.login);
 
 module.exports = router;

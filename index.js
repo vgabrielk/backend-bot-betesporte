@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Rotas
-app.use('/', usersRoutes);
-app.use('/accounts', authMiddleware.authenticateToken, accountsRoutes); // Protegendo as rotas de contas com o middleware de autenticação
+app.use('/users', authMiddleware.authenticateToken, usersRoutes);
+app.use('/accounts', authMiddleware.authenticateToken, accountsRoutes); 
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
